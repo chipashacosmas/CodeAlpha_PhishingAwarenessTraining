@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishShield — Interactive Phishing Awareness Training Platform</title>
+  <meta name="description" content="An interactive cybersecurity training platform focused on identifying phishing attacks, social engineering tactics, email analysis, and incident countermeasures. Developed for CodeAlpha Cybersecurity Internship.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-shield">🛡️</div>
+        <div class="brand-text">
+          <span class="brand-title">PhishShield<span class="brand-accent">.io</span></span>
+          <span class="brand-subtitle">Interactive Awareness & Defense Portal</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <button class="nav-btn active" data-tab="modules" id="tab-modules">📘 Learning Modules</button>
+        <button class="nav-btn" data-tab="simulator" id="tab-simulator">🔬 PhishLab Simulator</button>
+        <button class="nav-btn" data-tab="quiz" id="tab-quiz">🧠 Knowledge Check</button>
+        <button class="nav-btn" data-tab="case-studies" id="tab-cases">📊 Real Breaches</button>
+        <button class="nav-btn" data-tab="playbook" id="tab-playbook">🛡️ Response SOP</button>
+      </nav>
+
+      <div class="nav-meta">
+        <span class="author-badge">Student: Chipasha Cosmas</span>
+        <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-badge">CODEALPHA CYBERSECURITY INTERNSHIP · TASK 02</div>
+      <h1 class="hero-title">Defend Against the Deception</h1>
+      <p class="hero-desc">
+        Phishing remains the <strong>#1 attack vector</strong> behind over 90% of all organizational security breaches.
+        Master the techniques used by modern threat actors, inspect deceptive email structures, and hone your detection instincts through real-world simulation.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-value">3.4B+</span>
+          <span class="stat-label">Phishing Emails Sent Daily</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">36%</span>
+          <span class="stat-label">Involve Credential Harvesting</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">$4.91M</span>
+          <span class="stat-label">Average Breach Recovery Cost</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">82%</span>
+          <span class="stat-label">Involve the Human Element</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 1: LEARNING MODULES -->
+    <section class="tab-pane active" id="pane-modules">
+      <div class="section-header">
+        <h2>Cybersecurity Awareness Modules</h2>
+        <p>Comprehensive training on attack methodologies, psychology, and indicators of compromise.</p>
+      </div>
+
+      <div class="modules-grid">
+
+        <!-- Module 1 -->
+        <article class="module-card">
+          <div class="card-icon">🎯</div>
+          <span class="card-tag">MODULE 01</span>
+          <h3>Taxonomy of Social Engineering</h3>
+          <p>Explore the diverse spectrum of deception techniques used to manipulate psychological triggers.</p>
+          <ul class="feature-list">
+            <li><strong>Spear Phishing:</strong> Highly customized attacks targeting specific individuals using OSINT reconnaissance.</li>
+            <li><strong>Whaling (CEO Fraud):</strong> Deceptive targeting of C-level executives or authorized financial signers.</li>
+            <li><strong>Smishing & Vishing:</strong> SMS-based payload links and voice/AI-generated deepfake social engineering.</li>
+            <li><strong>Clone Phishing:</strong> Duplicating a legitimate prior email and replacing clean links with malicious payloads.</li>
+            <li><strong>Business Email Compromise (BEC):</strong> Account takeover or domain spoofing to initiate fraudulent wire transfers.</li>
+          </ul>
+        </article>
+
+        <!-- Module 2 -->
+        <article class="module-card">
+          <div class="card-icon">🧠</div>
+          <span class="card-tag">MODULE 02</span>
+          <h3>Psychological Attack Vectors</h3>
+          <p>Threat actors do not hack systems first; they hack human cognition. Understand the emotional levers.</p>
+          <ul class="feature-list">
+            <li><strong>Artificial Urgency:</strong> Tight deadlines ("Action required within 1 hour or account suspended").</li>
+            <li><strong>Authority Impersonation:</strong> Posing as IT Administrators, Legal counsel, or the CEO.</li>
+            <li><strong>Fear & Panic:</strong> Fabricated security alerts, missed court summons, or tax audit warnings.</li>
+            <li><strong>Greed & Opportunity:</strong> Unexpected bonuses, lottery payouts, or cryptocurrency investments.</li>
+            <li><strong>Curiosity & Helpfulness:</strong> Shipping package tracking or internal company organizational changes.</li>
+          </ul>
+        </article>
+
+        <!-- Module 3 -->
+        <article class="module-card">
+          <div class="card-icon">🔍</div>
+          <span class="card-tag">MODULE 03</span>
+          <h3>Email Anatomy & Header Forensics</h3>
+          <p>Dissect technical headers and detect deceptive indicators invisible in the formatted body.</p>
+          <ul class="feature-list">
+            <li><strong>Display Name Spoofing:</strong> Displaying a trusted name while the actual sender mailbox is external.</li>
+            <li><strong>Reply-To Mismatch:</strong> Directing responses to an attacker-controlled drop address.</li>
+            <li><strong>Email Authentication Triad:</strong> Verifying <code>SPF</code> (Sender Policy Framework), <code>DKIM</code> (cryptographic signature), and <code>DMARC</code> policy enforcement.</li>
+            <li><strong>Lookalike Domains (Typosquatting):</strong> Registering deceptive variations (e.g. <code>rnicrosoft.com</code> or <code>paypa1.com</code>).</li>
+            <li><strong>Dangerous Attachments:</strong> Obfuscated files, macro-enabled documents (<code>.xlsm</code>), and ISO disk images.</li>
+          </ul>
+        </article>
+
+        <!-- Module 4 -->
+        <article class="module-card">
+          <div class="card-icon">🌐</div>
+          <span class="card-tag">MODULE 04</span>
+          <h3>Deceptive URL Anatomy & Evasion</h3>
+          <p>Master how attackers manipulate URLs to deceive security filters and human eyes.</p>
+          <ul class="feature-list">
+            <li><strong>Subdomain Manipulation:</strong> <code>login.microsoft.com.attacker-server.net</code></li>
+            <li><strong>Open Redirect Exploitation:</strong> Abusing clean domains to forward visitors to credential harvesters.</li>
+            <li><strong>Internationalized Domain Names (IDN) Homoglyphs:</strong> Swapping Latin characters with visually identical Cyrillic glyphs.</li>
+            <li><strong>URL Shorteners & Obfuscation:</strong> Hiding payloads behind bit.ly, tinyurl, or encoded IP decimals.</li>
+            <li><strong>Reverse Proxy Phishing (AitM):</strong> Evilginx-style frameworks capturing active session cookies past MFA.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TAB 2: PHISHLAB SIMULATOR -->
+    <section class="tab-pane" id="pane-simulator">
+      <div class="section-header">
+        <h2>PhishLab — Interactive Email Inspection Sandbox</h2>
+        <p>Analyze realistic incoming messages. Hover over links, inspect headers, uncover red flags, and classify the email.</p>
+      </div>
+
+      <!-- Simulator Selector -->
+      <div class="sim-nav">
+        <button class="sim-selector active" data-scenario="0" id="sim-btn-0">Scenario 1: M365 Security Alert</button>
+        <button class="sim-selector" data-scenario="1" id="sim-btn-1">Scenario 2: CEO Urgent Wire Transfer</button>
+        <button class="sim-selector" data-scenario="2" id="sim-btn-2">Scenario 3: Internal HR Benefit Update</button>
+      </div>
+
+      <!-- Email Client Simulator Window -->
+      <div class="email-client">
+        <div class="client-header">
+          <div class="client-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="client-title">Enterprise Mail Client — Message Inspector</div>
+          <button class="btn-toggle-headers" id="btn-toggle-headers">Toggle Raw Headers ⬍</button>
+        </div>
+
+        <!-- Raw Headers Inspector (Hidden by default) -->
+        <div class="raw-headers" id="raw-headers-box">
+          <pre id="raw-headers-content">// Loading email headers...</pre>
+        </div>
+
+        <!-- Standard Email Header View -->
+        <div class="email-envelope">
+          <div class="envelope-row">
+            <span class="envelope-label">From:</span>
+            <span class="envelope-value" id="email-from">Loading...</span>
+          </div>
+          <div class="envelope-row">
+            <span class="envelope-label">Reply-To:</span>
+            <span class="envelope-value" id="email-replyto">Loading...</span>
+          </div>
+          <div class="envelope-row">
+            <span class="envelope-label">To:</span>
+            <span class="envelope-value" id="email-to">chipasha.cosmas@enterprise-corp.com</span>
+          </div>
+          <div class="envelope-row">
+            <span class="envelope-label">Subject:</span>
+            <span class="envelope-value email-subject" id="email-subject">Loading...</span>
+          </div>
+          <div class="envelope-row">
+            <span class="envelope-label">Date:</span>
+            <span class="envelope-value" id="email-date">Today at 09:14 AM</span>
+          </div>
+        </div>
+
+        <!-- Email Body Container -->
+        <div class="email-body" id="email-body-content">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Interactive Clue Checklist -->
+        <div class="interactive-clues" id="clues-panel">
+          <h4>💡 Click elements above to inspect, or review suspected red flags:</h4>
+          <div class="clues-list" id="clues-list"></div>
+        </div>
+
+        <!-- Action Assessment Buttons -->
+        <div class="sim-actions">
+          <button class="action-btn btn-report-phish" id="btn-report-phish">🚨 Report as Phishing Attack</button>
+          <button class="action-btn btn-mark-legit" id="btn-mark-legit">✅ Mark as Safe & Legitimate</button>
+        </div>
+
+        <!-- Feedback Result Banner -->
+        <div class="sim-feedback" id="sim-feedback"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: KNOWLEDGE CHECK (QUIZ) -->
+    <section class="tab-pane" id="pane-quiz">
+      <div class="section-header">
+        <h2>Phishing Defense Assessment Quiz</h2>
+        <p>Test your knowledge across 10 technical scenarios. Score 80%+ to unlock your verified Certificate of Awareness.</p>
+      </div>
+
+      <div class="quiz-container" id="quiz-container">
+        <!-- Progress Bar -->
+        <div class="quiz-progress-wrap">
+          <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+        </div>
+        <div class="quiz-meta-info">
+          <span id="quiz-counter">Question 1 of 10</span>
+          <span id="quiz-score-tracker">Score: 0 / 10</span>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-card" id="question-card">
+          <h3 class="question-title" id="question-title">Loading question...</h3>
+          <div class="question-scenario" id="question-scenario"></div>
+          <div class="options-grid" id="options-grid"></div>
+          <div class="answer-explanation" id="answer-explanation"></div>
+          <button class="btn-next-question" id="btn-next-question" style="display:none;">Next Question ➔</button>
+        </div>
+
+        <!-- Results Card (Hidden until complete) -->
+        <div class="quiz-result-card" id="quiz-result-card" style="display:none;">
+          <div class="result-badge" id="result-badge">🏆 PASSED</div>
+          <h3 id="result-headline">Outstanding Defense Instincts!</h3>
+          <p id="result-summary">You answered 9 out of 10 questions correctly.</p>
+
+          <div class="cert-preview" id="certificate-box">
+            <div class="cert-border">
+              <div class="cert-header">
+                <span class="cert-logo">🛡️ PHISHSHIELD ACADEMY</span>
+                <span class="cert-id">CERT-ID: CA-PA-2026-324898</span>
+              </div>
+              <h2 class="cert-title">Certificate of Completion</h2>
+              <p class="cert-text">This certifies that</p>
+              <h3 class="cert-name" id="cert-user-name">Chipasha Cosmas</h3>
+              <p class="cert-desc">
+                has successfully completed the practical training modules and demonstrated proficiency in
+                <strong>Phishing Detection, Social Engineering Analysis & Deceptive URL Forensics</strong>.
+              </p>
+              <div class="cert-footer">
+                <div>
+                  <span class="cert-label">Internship ID</span>
+                  <span class="cert-val">CA/DF1/324898</span>
+                </div>
+                <div>
+                  <span class="cert-label">Verification Date</span>
+                  <span class="cert-val">26 October 2026</span>
+                </div>
+                <div>
+                  <span class="cert-label">Organization</span>
+                  <span class="cert-val">CodeAlpha Cyber Security</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-actions">
+            <button class="btn-print-cert" onclick="window.print()">🖨️ Print / Save Certificate PDF</button>
+            <button class="btn-retry-quiz" id="btn-retry-quiz">🔄 Retake Assessment</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 4: REAL-WORLD CASE STUDIES -->
+    <section class="tab-pane" id="pane-case-studies">
+      <div class="section-header">
+        <h2>Catastrophic Real-World Phishing Breaches</h2>
+        <p>In-depth analysis of major cyber incidents that began with a single deceptive message.</p>
+      </div>
+
+      <div class="cases-grid">
+
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-year">2016</span>
+            <span class="case-tag tag-bec">BEC / CEO FRAUD</span>
+          </div>
+          <h3>FACC Aerospace — $61M CEO Fraud</h3>
+          <p class="case-desc">
+            An Austrian manufacturer of Boeing and Airbus components fell victim to a Business Email Compromise attack.
+            Attackers spoofed the email address of the CEO and instructed an entry-level accounting officer to transfer funds for an alleged "secret acquisition."
+          </p>
+          <div class="case-takeaways">
+            <strong>Key Failure:</strong> Absence of dual-control out-of-band phone verification for high-value treasury transfers.
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-year">2021</span>
+            <span class="case-tag tag-ransom">CREDENTIAL HARVESTING</span>
+          </div>
+          <h3>Colonial Pipeline — Single Password Breach</h3>
+          <p class="case-desc">
+            DarkSide ransomware operators shut down 5,500 miles of vital fuel pipeline on the US East Coast.
+            The breach began when attackers compromised a single legacy VPN account whose credentials were leaked via an employee phishing campaign lacking Multi-Factor Authentication.
+          </p>
+          <div class="case-takeaways">
+            <strong>Key Failure:</strong> Legacy perimeter services operating without enforced FIDO2 or app-based Multi-Factor Authentication.
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-header">
+            <span class="case-year">2022</span>
+            <span class="case-tag tag-smish">MFA BYPASS / SMISHING</span>
+          </div>
+          <h3>Twilio & Uber — MFA Fatigue & Smishing</h3>
+          <p class="case-desc">
+            The "0ktapus" threat group targeted over 130 organizations using SMS phishing (smishing) disguised as IT password reset notifications.
+            When users encountered MFA, attackers deployed MFA push-bombing (fatigue) until tired employees accepted the push prompt.
+          </p>
+          <div class="case-takeaways">
+            <strong>Key Failure:</strong> Reliance on simple push notifications instead of phishing-resistant FIDO2 Passkeys or number matching.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 5: INCIDENT RESPONSE PLAYBOOK -->
+    <section class="tab-pane" id="pane-playbook">
+      <div class="section-header">
+        <h2>Standard Operating Procedure: Phishing Incident Escalation</h2>
+        <p>Actionable security protocol for security operations teams and employees when suspicious activity occurs.</p>
+      </div>
+
+      <div class="playbook-steps">
+
+        <div class="sop-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Immediate Isolation & Containment</h3>
+            <p>If you clicked a link or opened an attachment:</p>
+            <ul>
+              <li>Disconnect your system from Wi-Fi and unplug the Ethernet network cable immediately.</li>
+              <li>Do <strong>not</strong> power down or restart the computer (preserves volatile RAM evidence for forensic capture).</li>
+              <li>Notify the Security Operations Center (SOC) or IT Security on-call personnel via an alternate channel (phone/in-person).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sop-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Credential Invalidation & Revocation</h3>
+            <p>If corporate credentials were typed into an external web page:</p>
+            <ul>
+              <li>Immediately initiate an enterprise session revocation and password reset from a known-clean device.</li>
+              <li>Audit all active OAuth application permissions and enrolled MFA authenticator devices for unauthorized additions.</li>
+              <li>Examine Exchange / Google Workspace mail forwarding rules for unauthorized inbox routing rules.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="sop-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Header Extraction & Threat Hunting</h3>
+            <p>Extracting the raw Internet headers to protect colleagues:</p>
+            <ul>
+              <li>Export the message as an <code>.eml</code> or <code>.msg</code> RFC 822 file attachment (forwarding as plain text strips crucial cryptographic headers).</li>
+              <li>SOC extracts the originating server IP, SPF/DKIM verification status, and malicious URLs.</li>
+              <li>Add malicious URLs and sender domains to enterprise boundary firewall, secure email gateway (SEG), and DNS blackholes.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>
+        <strong>CodeAlpha Cyber Security Internship</strong> — Task 02: Phishing Awareness Training Platform<br>
+        Developed by <strong>Chipasha Cosmas</strong> · BSc Cybersecurity, Kwame Nkrumah University (KMU) · ID: <code>CA/DF1/324898</code>
+      </p>
+      <p class="footer-sub">For educational and training awareness purposes. Protect your organization by staying alert.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
