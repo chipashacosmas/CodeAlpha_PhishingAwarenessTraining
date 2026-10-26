@@ -2,7 +2,7 @@
 ## Enterprise Security Education & Practical Countermeasures
 **CodeAlpha Cyber Security Internship — Task 02: Presentation Deck**  
 **Presenter:** Chipasha Cosmas  
-**Degree:** Bachelor of Science in Cybersecurity — Kwame Nkrumah University (KMU), Zambia  
+**Degree:** Bachelor of Science in Cybersecurity — Kapasa Makasa University (KMU), Zambia  
 **Internship ID:** CA/DF1/324898  
 
 ---
